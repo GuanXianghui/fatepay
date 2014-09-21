@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 开发模式 -->
+    <constant name="struts.devMode" value="true"/>
+    <!-- 标注struts请求地址以do结尾 -->
+    <constant name="struts.action.extension" value="do"/>
+    <!-- struts的action由spring创建，才能注入Resource的属性，需要再struts.xml中配置这项，还需要struts2-spring-plugin-x.x.x.jar -->
+    <constant name="struts.objectFactory" value="spring" />
+    <!-- struts包描述 继承默认包struts-default 命名空间为/ -->
+    <package name="default" namespace="/" extends="struts-default">
+        <!-- 参考模版 -->
+        <!--<action name="updateDiary" class="com.gxx.oa.UpdateDiaryAction">-->
+            <!--<result>-->
+                <!--/showDiary.jsp?id=${diaryId}-->
+            <!--</result>-->
+            <!--<result name="error">-->
+                <!--/showDiary.jsp?id=${diaryId}-->
+            <!--</result>-->
+        <!--</action>-->
+
+        <!-- class="transAction"，根据"transAction"到spring中找bean，有则有spring生成，注入需注入的Resource -->
+        <!-- 如果找不到，比如，class="com.fatepay.TestAction"，则根据class，new一个对象 -->
+        <!-- 测试Action -->
+        <action name="test" class="testAction">
+            <result>
+                /test.jsp
+            </result>
+            <result name="error">
+                /test.jsp
+            </result>
+        </action>
+
+        <!-- 交易Action -->
+        <action name="trans" class="transAction">
+            <result name="result">
+                /result.jsp
+            </result>
+            <result name="jump">
+                /jump.jsp
+            </result>
+        </action>
+
+        <!-- 支付返回前台Action -->
+        <action name="payReturnPg" class="payReturnPgAction">
+            <result name="result">
+                /result.jsp
+            </result>
+            <result name="jump">
+                /jump.jsp
+            </result>
+        </action>
+
+        <!-- 支付返回后台Action -->
+        <action name="payReturnBg" class="payReturnBgAction">
+        </action>
+    </package>
+</struts>
+
+
+
