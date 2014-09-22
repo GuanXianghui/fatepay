@@ -1,0 +1,13 @@
+域名控制面板：http://www.jinmi8.com/jmlogin.asp
+账号：321765@qq.com
+密码：123qwe
+
+
+
+网站管理后台：http://rungroup.com.cn/admin.php
+帐号  admin
+密码admin
+
+FTP服务器IP: 59.188.219.179
+FTP用户名:yeyangyi479
+FTP密码：0797CAC17B7346

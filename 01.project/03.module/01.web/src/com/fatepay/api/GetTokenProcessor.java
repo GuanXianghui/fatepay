@@ -47,6 +47,7 @@ public class GetTokenProcessor extends BaseTransProcessor {
             // 校验域名白名单 多个用逗号隔开
             checkWhiteList();
         } catch (Exception e) {
+            logger.error("数据校验异常发生！", e);
             // 组织失败结果
             String message = "{" +
                     "\"isSuccess\":\"N\"," +

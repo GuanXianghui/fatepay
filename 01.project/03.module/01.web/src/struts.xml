@@ -8,8 +8,16 @@
     <constant name="struts.devMode" value="true"/>
     <!-- 标注struts请求地址以do结尾 -->
     <constant name="struts.action.extension" value="do"/>
-    <!-- struts的action由spring创建，才能注入Resource的属性，需要再struts.xml中配置这项，还需要struts2-spring-plugin-x.x.x.jar -->
+    <!--
+    1.引入struts2-spring-plugin-x.x.x.jar
+    2.该jar包中包含struts-plugin.xml配置文件，该配置文件中有一如下静态配置(struts.xml中无需再次配置)
     <constant name="struts.objectFactory" value="spring" />
+    3.该配置，告知struts，struts的action由spring创建或装配，这样才能注入Resource的属性
+    4.如struts.xml中action的配置：<action name="test" class="testAction">
+    当创建一个对象的时候，它会用Struts2配置文件中的class属性(testAction)去和Spring配置文件中的id属性进行关联
+    (这里class TestAction使用注解@Component("testAction"))，如果能找到，则由Spring创建，否则由Struts 2框架自身创建
+    (比如com.fatepay.TestAction)，然后由Spring来装配，一样会注入Resource的属性。
+     -->
     <!-- struts包描述 继承默认包struts-default 命名空间为/ -->
     <package name="default" namespace="/" extends="struts-default">
         <!-- 参考模版 -->

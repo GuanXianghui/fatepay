@@ -17,6 +17,7 @@
         }
     </script>
     <%
+        request.setCharacterEncoding("UTF-8");
         String jumpUrl = (String)request.getAttribute("jumpUrl");
         Properties properties = (Properties)request.getAttribute("properties");
     %>

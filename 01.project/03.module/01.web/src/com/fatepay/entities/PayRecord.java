@@ -17,7 +17,8 @@ public class PayRecord {
     String orderNo;//商户订单号
     String token;//token串
     String productName;//商品名称
-    String orderAmount;//订单金额，正整数，单位为分
+    String orderAmount;//该笔订单的总金额，以元为单位，精确到小数点后两位，举例：10.01。
+    String extraReturnParam;//如果支付请求时传递该参数，则交易完成通知商户时回传该参数。
     String returnUrl;//页面跳转返回URL
     String notifyUrl;//后台异步通知URL
     String tradeDateTime;//返回结果时间 格式：yyyyMMddHHmmss
@@ -33,6 +34,18 @@ public class PayRecord {
     String updateTime;//修改时间 格式HHmmss
     String updateIp;//修改IP地址
     int version;//Hibernate乐观锁 版本号
+
+    @Override
+    public String toString() {
+        return "id:[" + id + "],tradeNo:[" + tradeNo + "],merchantCode:[" + merchantCode + "],orderNo:[" +
+                orderNo + "],token:[" + token + "],productName:[" + productName + "],orderAmount:[" +
+                orderAmount + "],extraReturnParam:[" + extraReturnParam + "],returnUrl:[" + returnUrl +
+                "],notifyUrl:[" + notifyUrl + "],tradeDateTime:[" + tradeDateTime + "],tradeState:[" +
+                tradeState + "],tradeBankSeq:[" + tradeBankSeq + "],tradeDesc:[" + tradeDesc +
+                "],alreadyNotify:[" + alreadyNotify + "],notifyTimes:[" + notifyTimes + "],createDate:[" +
+                createDate + "],createTime:[" + createTime + "],createIp:[" + createIp + "],updateDate:[" +
+                updateDate + "],updateTime:[" + updateTime + "],updateIp:[" + updateIp + "],version:[" + version + "]";
+    }
 
     @Id
     @GeneratedValue
@@ -102,6 +115,15 @@ public class PayRecord {
 
     public void setOrderAmount(String orderAmount) {
         this.orderAmount = orderAmount;
+    }
+
+    @Column(length = 100)
+    public String getExtraReturnParam() {
+        return extraReturnParam;
+    }
+
+    public void setExtraReturnParam(String extraReturnParam) {
+        this.extraReturnParam = extraReturnParam;
     }
 
     @Column(length = 255)

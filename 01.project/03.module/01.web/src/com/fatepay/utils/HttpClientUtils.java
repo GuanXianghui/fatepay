@@ -147,6 +147,13 @@ public class HttpClientUtils
      */
     public static String postProps(String url, Properties props, String requestEncode, String responseEncode) throws Exception
     {
+        logger.info("httpclient post url 请求 开始==============");
+        logger.info("url=" + url);
+        logger.debug("没有使用证书，协议注册443端口信任所有证书，开始=================================");
+        Protocol easyHttps1 = new Protocol("https", new EasySSLProtocolSocketFactory(), 443);
+        Protocol.registerProtocol("https", easyHttps1);
+        logger.debug("没有使用证书，协议注册443端口信任所有证书，结束=================================");
+
         PostMethod method = new PostMethod(url);
         Enumeration enums = props.keys();
         while (enums.hasMoreElements())
@@ -159,6 +166,7 @@ public class HttpClientUtils
             }
         }
         method.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET,requestEncode);
+        logger.info("httpclient post url 请求 结束==============");
         return connect(method, responseEncode);
     }
 

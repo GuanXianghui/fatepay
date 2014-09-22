@@ -76,24 +76,34 @@ public class BaseUtil {
     }
 
     /**
-     * 将分转成元 元精确到小数点后两位
+     * 将元格式化 元精确到小数点后两位
      * @param money
      * @return
      */
-    public static String translateFenToYuan(String money){
+    public static String formatYuan(String money){
         DecimalFormat decimalFormat = new DecimalFormat("#######0.00");
-        return decimalFormat.format(Integer.parseInt(money)*1.0/100);
+        return decimalFormat.format(Double.parseDouble(money));
     }
 
-    /**
-     * 将元转成分 元精确到小数点后两位
-     * @param money
-     * @return
-     */
-    public static String translateYuanToFen(String money){
-        DecimalFormat decimalFormat = new DecimalFormat("#########0");
-        return decimalFormat.format(Double.parseDouble(money) * 100);
-    }
+//    /**
+//     * 将分转成元 元精确到小数点后两位
+//     * @param money
+//     * @return
+//     */
+//    public static String translateFenToYuan(String money){
+//        DecimalFormat decimalFormat = new DecimalFormat("#######0.00");
+//        return decimalFormat.format(Integer.parseInt(money)*1.0/100);
+//    }
+//
+//    /**
+//     * 将元转成分 元精确到小数点后两位
+//     * @param money
+//     * @return
+//     */
+//    public static String translateYuanToFen(String money){
+//        DecimalFormat decimalFormat = new DecimalFormat("#########0");
+//        return decimalFormat.format(Double.parseDouble(money) * 100);
+//    }
 
     /**
      * 为支付状态判优先级

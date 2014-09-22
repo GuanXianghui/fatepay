@@ -20,6 +20,7 @@
             <element id="library" level="project" name="servlet" />
             <element id="library" level="project" name="spring" />
             <element id="library" level="project" name="struts2_lib" />
+            <element id="library" level="project" name="xml" />
           </element>
         </element>
         <element id="javaee-facet-resources" facet="01.web/web/Web" />
@@ -294,6 +295,14 @@
       <JAVADOC />
       <SOURCES />
       <jarDirectory url="file://$PROJECT_DIR$/../../02.lib/struts2_lib" recursive="false" />
+    </library>
+    <library name="xml">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../../02.lib/xml" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+      <jarDirectory url="file://$PROJECT_DIR$/../../02.lib/xml" recursive="false" />
     </library>
   </component>
 </project>

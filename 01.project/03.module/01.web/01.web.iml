@@ -31,6 +31,7 @@
     <orderEntry type="library" name="servlet" level="project" />
     <orderEntry type="library" name="spring" level="project" />
     <orderEntry type="library" name="struts2_lib" level="project" />
+    <orderEntry type="library" name="xml" level="project" />
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>

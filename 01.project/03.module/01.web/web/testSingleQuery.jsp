@@ -9,8 +9,8 @@
     <form action="trans.do" method="post">
         商户号：<input type="text" name="merchantCode" value="880001"><br>
         服务名称：<input type="text" name="serviceCode" value="singleQuery"><br>
-        token串：<input type="text" name="token" value="123123123"><br>
-        商户订单号：<input type="text" name="orderNo" value="2014091900000001"><br>
+        token串：<input type="text" name="token" value=""><br>
+        商户订单号：<input type="text" name="orderNo" value="0000000001"><br>
         <input type="submit" value="提交">
     </form>
 </div>

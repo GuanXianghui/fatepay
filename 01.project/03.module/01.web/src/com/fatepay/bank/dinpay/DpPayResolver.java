@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 /**
@@ -48,10 +49,16 @@ public class DpPayResolver implements IPayResolver {
         props.put("sign_type", "MD5");//签名方式
         props.put("order_no", payRecord.getTradeNo());//商户网站唯一订单号
         props.put("order_time", DateUtil.getLongDateTime(DateUtil.getDateTime(payRecord.getCreateDate(), payRecord.getCreateTime())));//商户订单时间 格式：yyyy-MM-dd HH:mm:ss
-        props.put("order_amount", BaseUtil.translateFenToYuan(payRecord.getOrderAmount()));//该笔订单的总金额，以元为单位，精确到小数点后两位
+        props.put("order_amount", BaseUtil.formatYuan(payRecord.getOrderAmount()));//该笔订单的总金额，以元为单位，精确到小数点后两位
         String productName = payRecord.getProductName();
         if(StringUtils.isBlank(productName)){
             productName = "网购商品";
+        }
+
+        try {
+            productName = new String(productName.getBytes("ISO-8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            logger.error("字符串转码失败！", e);
         }
         props.put("product_name", productName);//商品名称
 
@@ -162,7 +169,7 @@ public class DpPayResolver implements IPayResolver {
         }
 
         // 4 判金额一致
-        if(Integer.parseInt(payRecord.getOrderAmount()) != Integer.parseInt(BaseUtil.translateYuanToFen(orderAmount))){
+        if(Double.parseDouble(payRecord.getOrderAmount()) != Double.parseDouble(BaseUtil.formatYuan(orderAmount))){
             String message = "记录已存在，金额不一致！";
             logger.error(message);
             TransProcessorResult transProcessorResult = new TransProcessorResult();
@@ -258,10 +265,11 @@ public class DpPayResolver implements IPayResolver {
                 String returnTradeDateTime = tradeDateTime;
                 String returnTradeState = BaseUtil.translatePayRecordState(payRecord.getTradeState());
                 String returnTradeDesc = BaseUtil.translatePayRecordStateDesc(payRecord.getTradeState());
+                String returnExtraReturnParam = payRecord.getExtraReturnParam();
                 String returnSignType = "MD5";
                 String returnSign = new MD5Util().md5(returnServiceCode + returnOrderNo + returnOrderAmount +
-                        returnTradeNo + returnTradeDateTime + returnTradeState + returnTradeDesc + returnSignType +
-                        MerchantInfoUtil.getInstance().getMerchantInfo(payRecord.getMerchantCode()).getMd5Key());
+                        returnTradeNo + returnTradeDateTime + returnTradeState + returnTradeDesc + returnExtraReturnParam +
+                        returnSignType + MerchantInfoUtil.getInstance().getMerchantInfo(payRecord.getMerchantCode()).getMd5Key());
                 Properties properties = new Properties();
                 properties.put("serviceCode", returnServiceCode);
                 properties.put("orderNo", returnOrderNo);
@@ -270,6 +278,7 @@ public class DpPayResolver implements IPayResolver {
                 properties.put("tradeDateTime", returnTradeDateTime);
                 properties.put("tradeState", returnTradeState);
                 properties.put("tradeDesc", returnTradeDesc);
+                properties.put("extraReturnParam", returnExtraReturnParam);
                 properties.put("signType", returnSignType);
                 properties.put("sign", returnSign);
                 transProcessorResult.setProperties(properties);

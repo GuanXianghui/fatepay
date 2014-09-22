@@ -1,5 +1,6 @@
 package com.fatepay.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 
 /**
@@ -60,7 +61,11 @@ public class MD5Util
     public String md5(String s)
     {
         md5Init();
-        md5Update(s.getBytes(), s.length());
+        try {
+            md5Update(s.getBytes("UTF-8"), s.length());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         md5Final();
         digestHexStr = "";
         for(int i = 0; i < 16; i++)

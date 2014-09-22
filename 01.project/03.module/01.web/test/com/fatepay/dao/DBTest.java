@@ -47,7 +47,8 @@ public class DBTest extends TestCase {
         merchantInfo.setName("第一个商户");
         merchantInfo.setState(MerchantInfoInterface.STATE_CHECKING);
         merchantInfo.setCheckDesc("待审核状态！");
-        merchantInfo.setEmail("419066357@163.com");
+        merchantInfo.setUserId("419066357@163.com");
+        merchantInfo.setEmail(merchantInfo.getUserId());
         merchantInfo.setPassword("MD5(123qwe)");
         merchantInfo.setBankCode("ABC");
         merchantInfo.setBankCard("955990030002165514");
@@ -111,7 +112,7 @@ public class DBTest extends TestCase {
      */
     public void testUpdateMerchantInfoWhiteList(){
         MerchantInfo merchantInfo = testGetMerchantInfoByMerchantCode();
-        merchantInfo.setWhiteList("http://localhost/");
+        merchantInfo.setWhiteList("http://localhost,http://127.0.0.1,http://www.suncare-sys.com,http://192.168.1.182,http://58.247.137.210");
         hibernateTemplate.update(merchantInfo);
     }
 

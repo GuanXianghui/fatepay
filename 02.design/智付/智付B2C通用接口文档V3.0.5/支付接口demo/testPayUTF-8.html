@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<form method="post" action="MerDinpayUTF-8.jsp" target="_blank">
+<br>商 家 号：<input Type="text" Name="merchant_code" value="1002">
+	<br>服务类型：<input Type="text" Name="service_type" value="direct_pay">
+	<input type="hidden" name="input_charset" value="UTF-8"/>
+	<input Type="hidden" Name="interface_version" value="V3.0"/>
+	<br>签名方式：<input Type="text" Name="sign_type" value="MD5"/>
+	<br>订 单 号：<input Type="text" Name="order_no" value="1000201555"/>
+	<br>时间字段：<input Type="text" Name="order_time" value="2013-07-18 12:20:10"/>
+	<br>订单金额：<input Type="text" Name="order_amount" value="100"/>
+	<br>商品名：<input Type="text" Name="product_name" value="电视机"/>
+	<br>银行标识：
+	<select Name="bank_code" style="width:150px;">
+		<option value="">-请选择-</option>
+		<option value="ABC">农业银行</option>
+		<option value="ICBC">工商银行</option>
+		<option value="CCB">建设银行</option>
+		<option value="BCOM">交通银行</option>
+		<option value="BOC">中国银行</option>
+		<option value="CMB">招商银行</option>
+		<option value="CMBC">民生银行</option>
+		<option value="CEBB">光大银行</option>
+		<option value="CIB">兴业银行</option>
+		<option value="PSBC">邮储银行</option>
+		<option value="SPABANK">平安银行</option>
+		<option value="ECITIC">中信银行</option>
+		<option value="GDB">广发银行</option>
+		<option value="HXB">华夏银行</option>
+		<option value="SPDB">浦发银行</option>
+		<option value="BEA">东亚银行</option>
+	</select>
+	<br>客户端IP：<input Type="text" Name="client_ip" value="">
+	<br>公用业务扩展参数：<input Type="text" Name="extend_param" value="">
+	<br>公用回传参数：<input Type="text" Name="extra_return_param" value="">
+	<br>商品编号：<input Type="text" Name="product_code" value="">
+	<br>商品描述：<input Type="text" Name="product_desc" value="">
+	<br>商品数量：<input Type="text" Name="product_num" value="">
+	<br>页面跳转同步通知地址：<input Type="text" Name="return_url" value="">
+	<br>商品展示URL：<input Type="text" Name="show_url" value="">
+	<br><input Type="submit" Name="submit" value="智付在线支付">
+</form>
+</body>
+</html>

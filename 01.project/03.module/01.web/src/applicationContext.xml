@@ -78,28 +78,4 @@
             <tx:method name="delete*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
-
-    <!-- Spring+Quartz实现定时任务的配置 -->
-    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="triggers">
-            <list>
-                <ref bean="successPayRecordScanTrigger"/>
-            </list>
-        </property>
-        <property name="autoStartup" value="true"/>
-    </bean>
-    <!-- trigger配置 -->
-    <bean id="successPayRecordScanTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-        <property name="jobDetail" ref="successPayRecordScanJobDetail"/>
-        <property name="cronExpression" value="0 */1 * * * ?"/><!-- 每隔1分钟触发一次 -->
-    </bean>
-    <!-- 任务配置 -->
-    <bean id="successPayRecordScanJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetObject" ref="successPayRecordScanner"/>
-        <property name="targetMethod" value="scan"/>
-        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
-        <property name="concurrent" value="false"/>
-    </bean>
-    <!-- bean配置 -->
-    <bean id="successPayRecordScanner" class="com.fatepay.job.SuccessPayRecordScanner"/>
 </beans>

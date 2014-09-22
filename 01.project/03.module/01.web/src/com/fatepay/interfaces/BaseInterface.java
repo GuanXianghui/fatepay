@@ -25,6 +25,10 @@ public interface BaseInterface {
      */
     public static final String DINPAY_PAY_URL= "dinpay_pay_url";
     /**
+     * 智付单笔交易查询地址
+     */
+    public static final String DINPAY_QUERY_URL= "dinpay_query_url";
+    /**
      * U支付在智付商户号
      */
     public static final String DINPAY_MERCHANT_CODE= "dinpay_merchant_code";

@@ -17,7 +17,8 @@ public class MerchantInfo {
     String name;//商户名称
     int state;//状态
     String checkDesc;//审核失败描述
-    String email;//后台登陆邮箱 注册前必须验证通过
+    String userId;//后台登陆（邮箱）
+    String email;//邮箱 注册前必须验证通过
     String password;//密码
     String bankCode;//银行代码
     String bankCard;//银行账号
@@ -29,7 +30,7 @@ public class MerchantInfo {
     String returnUrl;//页面跳转返回URL
     String notifyUrl;//后台异步通知URL
     String whiteList;//域名白名单 多个用逗号隔开
-    float fee;//手续费比例 2.5%则填0.025
+    double fee;//手续费比例 2.5%则填0.025
     String createDate;//创建日期 格式yyyyMMdd
     String createTime;//创建时间 格式HHmmss
     String createIp;//请求IP地址
@@ -37,6 +38,18 @@ public class MerchantInfo {
     String updateTime;//修改时间 格式HHmmss
     String updateIp;//修改IP地址
     int version;//Hibernate乐观锁 版本号
+
+    @Override
+    public String toString() {
+        return "id:[" + id + "],code:[" + code + "],name:[" + name + "],state:[" + state + "],checkDesc:[" +
+                checkDesc + "],email:[" + email + "],password:[" + password + "],bankCode:[" + bankCode +
+                "],bankCard:[" + bankCard + "],bankAccountName:[" + bankAccountName + "],userName:[" + userName +
+                "],userPhone:[" + userPhone + "],userQq:[" + userQq + "],md5Key:[" + md5Key + "],returnUrl:[" +
+                returnUrl + "],notifyUrl:[" + notifyUrl + "],whiteList:[" + whiteList + "],fee:[" + fee +
+                "],createDate:[" + createDate + "],createTime:[" + createTime + "],createIp:[" + createIp +
+                "],updateDate:[" + updateDate + "],updateTime:[" + updateTime + "],updateIp:[" + updateIp +
+                "],version:[" + version + "]";
+    }
 
     @Id
     @GeneratedValue
@@ -87,6 +100,15 @@ public class MerchantInfo {
 
     public void setCheckDesc(String checkDesc) {
         this.checkDesc = checkDesc;
+    }
+
+    @Column(unique = true, nullable = false, length = 30)
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Column(unique = true, nullable = false, length = 30)
@@ -197,11 +219,11 @@ public class MerchantInfo {
         this.whiteList = whiteList;
     }
 
-    public float getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(float fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 
@@ -266,17 +288,5 @@ public class MerchantInfo {
 
     public void setVersion(int version) {
         this.version = version;
-    }
-
-    @Override
-    public String toString() {
-        return "id:[" + id + "],code:[" + code + "],name:[" + name + "],state:[" + state + "],checkDesc:[" +
-                checkDesc + "],email:[" + email + "],password:[" + password + "],bankCode:[" + bankCode +
-                "],bankCard:[" + bankCard + "],bankAccountName:[" + bankAccountName + "],userName:[" + userName +
-                "],userPhone:[" + userPhone + "],userQq:[" + userQq + "],md5Key:[" + md5Key + "],returnUrl:[" +
-                returnUrl + "],notifyUrl:[" + notifyUrl + "],whiteList:[" + whiteList + "],fee:[" + fee +
-                "],createDate:[" + createDate + "],createTime:[" + createTime + "],createIp:[" + createIp +
-                "],updateDate:[" + updateDate + "],updateTime:[" + updateTime + "],updateIp:[" + updateIp +
-                "],version:[" + version + "]";
     }
 }

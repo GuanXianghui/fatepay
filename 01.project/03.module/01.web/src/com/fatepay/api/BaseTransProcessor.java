@@ -80,7 +80,8 @@ public abstract class BaseTransProcessor implements ITransProcessor {
         //逐个字段校验
         for(String column : columns){
             if(StringUtils.isEmpty(request.getParameter(column))){
-                throw new RuntimeException(column + "不允许为空！");
+                logger.error(column + "不允许为空！");
+                throw new RuntimeException("PARAM_ERROR");
             }
         }
     }
@@ -99,7 +100,8 @@ public abstract class BaseTransProcessor implements ITransProcessor {
             String columnName = column.substring(0, column.indexOf(SymbolInterface.SYMBOL_EQUAL));
             int length = Integer.parseInt(column.substring(column.indexOf(SymbolInterface.SYMBOL_EQUAL) + 1));
             if(StringUtils.trimToEmpty(request.getParameter(columnName)).length() > length){
-                throw new RuntimeException(columnName + "长度超过上限！");
+                logger.error(columnName + "长度超过上限！");
+                throw new RuntimeException("PARAM_ERROR");
             }
         }
     }
@@ -119,8 +121,36 @@ public abstract class BaseTransProcessor implements ITransProcessor {
             String columnName = column.substring(0, column.indexOf(SymbolInterface.SYMBOL_EQUAL));
             String columnValue = column.substring(column.indexOf(SymbolInterface.SYMBOL_EQUAL) + 1);
             if(!StringUtils.equals(StringUtils.trimToEmpty(request.getParameter(columnName)), columnValue)){
-                throw new RuntimeException(columnName + "字段不合法！");
+                logger.error(columnName + "不等于固定值" + columnValue);
+                throw new RuntimeException("PARAM_ERROR");
             }
+        }
+    }
+
+    /**
+     * 校验金额
+     * 以元为单位，精确到小数点后两位，举例：10.01
+     * @param moneyParamName 金额字段名称
+     * @throws Exception
+     */
+    public void checkMoney(String moneyParamName) throws Exception {
+        try{
+            String money = StringUtils.trimToEmpty(request.getParameter(moneyParamName));
+            if(StringUtils.isBlank(money)){
+                throw new RuntimeException("金额不能为空");
+            }
+            int dotIndex = money.indexOf(SymbolInterface.SYMBOL_DOT);
+            if(dotIndex > -1 && money.substring(dotIndex+1).length()>2){
+                throw new RuntimeException("金额不合法");
+            }
+            double doubleMoney = Double.parseDouble(money);
+            if(doubleMoney <= 0){
+                throw new RuntimeException("金额必须大于0");
+            }
+        } catch (Exception e){
+            logger.error("金额校验失败，" + moneyParamName + "=" +
+                    StringUtils.trimToEmpty(request.getParameter(moneyParamName)), e);
+            throw new RuntimeException("金额校验失败");
         }
     }
 
@@ -132,10 +162,12 @@ public abstract class BaseTransProcessor implements ITransProcessor {
         String merchantCode = StringUtils.trimToEmpty(request.getParameter("merchantCode"));
         MerchantInfo merchantInfo = MerchantInfoUtil.getInstance().getMerchantInfo(merchantCode);
         if(null == merchantInfo){
-            throw new RuntimeException("该商户[" + merchantCode + "]不存在！");
+            logger.error("该商户[" + merchantCode + "]不存在！");
+            throw new RuntimeException("MERCHANT_NOT_EXIST");
         }
         if(MerchantInfoInterface.STATE_NORMAL != merchantInfo.getState()){
-            throw new RuntimeException("该商户[" + merchantCode + "]状态不正常！");
+            logger.error("该商户[" + merchantCode + "]状态不正常！");
+            throw new RuntimeException("MERCHANT_NOT_NORMAL");
         }
     }
 
@@ -156,8 +188,8 @@ public abstract class BaseTransProcessor implements ITransProcessor {
                 }
             }
         }
-
-        throw new RuntimeException("该请求来源不合法！");
+        logger.error("该请求来源不合法！");
+        throw new RuntimeException("REQUEST_DENIED");
     }
 
     /**
@@ -212,7 +244,31 @@ public abstract class BaseTransProcessor implements ITransProcessor {
         String merchantCode = StringUtils.trimToEmpty(request.getParameter("merchantCode"));
         String token = StringUtils.trimToEmpty(request.getParameter("token"));
         if(!TokenUtil.getInstance().checkToken(merchantCode, token)){
-            throw new RuntimeException("token不存在或者已失效！");
+            logger.error("token不存在或者已失效！");
+            throw new RuntimeException("REQUEST_NOT_EFFECTIVE");
+        }
+    }
+
+    /**
+     * 翻译错误代码
+     * @param errorCode
+     * @return
+     */
+    public String translateErrorCode(String errorCode){
+        if(StringUtils.equalsIgnoreCase(errorCode, "PARAM_ERROR")){
+            return "字段有误";
+        } else if(StringUtils.equalsIgnoreCase(errorCode, "MERCHANT_NOT_EXIST")){
+            return "商户不存在";
+        } else if(StringUtils.equalsIgnoreCase(errorCode, "MERCHANT_NOT_NORMAL")){
+            return "商户不合法";
+        } else if(StringUtils.equalsIgnoreCase(errorCode, "REQUEST_NOT_EFFECTIVE")){
+            return "请求失效";
+        } else if(StringUtils.equalsIgnoreCase(errorCode, "REQUEST_DENIED")){
+            return "请求受限";
+        } else if(StringUtils.equalsIgnoreCase(errorCode, "RECORD_NOT_EXIST")){
+            return "记录不存在";
+        } else {
+            return "其他";
         }
     }
 }

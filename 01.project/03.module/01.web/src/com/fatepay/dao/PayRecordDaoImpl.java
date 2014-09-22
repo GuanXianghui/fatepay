@@ -99,7 +99,7 @@ public class PayRecordDaoImpl implements IPayRecordDao {
                 "',p.tradeState=" + payRecord.getTradeState() + ",p.tradeBankSeq='" + payRecord.getTradeBankSeq() +
                 "',p.tradeDesc='" + payRecord.getTradeDesc() + "',p.updateDate='" + payRecord.getUpdateDate() +
                 "',p.updateTime='" + payRecord.getUpdateTime() + "',p.updateIp='" + payRecord.getUpdateIp() +
-                "' where p.tradeState!=" + PayRecordInterface.STATE_SUCCESS;
+                "' where p.id=" + payRecord.getId() + " and  p.tradeState!=" + PayRecordInterface.STATE_SUCCESS;
         session.createQuery(hql).executeUpdate();
         session.getTransaction().commit();
     }
@@ -129,8 +129,8 @@ public class PayRecordDaoImpl implements IPayRecordDao {
         session.beginTransaction();
         String hql = "update PayRecord p set p.alreadyNotify=" + payRecord.getAlreadyNotify() +
                 ",p.notifyTimes=" + payRecord.getNotifyTimes() + ",p.updateDate='" + payRecord.getUpdateDate() +
-                "',p.updateTime='" + payRecord.getUpdateTime() +  "' where p.alreadyNotify!=" +
-                PayRecordInterface.ALREADY_NOTIFY_YES;
+                "',p.updateTime='" + payRecord.getUpdateTime() +  "' where p.id=" + payRecord.getId() +
+                " and p.alreadyNotify!=" + PayRecordInterface.ALREADY_NOTIFY_YES;
         session.createQuery(hql).executeUpdate();
         session.getTransaction().commit();
     }
