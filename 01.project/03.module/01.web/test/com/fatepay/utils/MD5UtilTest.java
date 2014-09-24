@@ -46,4 +46,16 @@ public class MD5UtilTest extends TestCase {
         String sign = DinPayUtil.sign(props);
         System.out.println(sign);
     }
+
+    /**
+     * 测试md5
+     */
+    public void testForceSingleQueryMd5(){
+        String merchantCode = "880001";
+        String orderNo = "M_201409230000000014";
+        String md5Key = "asdf1234#$%^";
+        String preMd5Str = merchantCode + orderNo + md5Key;
+        String sign = new MD5Util().md5(preMd5Str);
+        System.out.println(sign);
+    }
 }

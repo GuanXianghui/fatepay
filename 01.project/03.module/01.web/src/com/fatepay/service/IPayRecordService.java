@@ -43,6 +43,12 @@ public interface IPayRecordService {
     public void updateTradeState(PayRecord payRecord);
 
     /**
+     * 银行返回交易状态【强制】修改支付记录
+     * @param payRecord
+     */
+    public void forceUpdateTradeState(PayRecord payRecord);
+
+    /**
      * 查询需要异步通知的记录
      * 条件：【支付成功+未完成通知+通知次数小于5】
      * @return

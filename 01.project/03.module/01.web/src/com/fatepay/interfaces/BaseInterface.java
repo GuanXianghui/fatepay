@@ -21,6 +21,10 @@ public interface BaseInterface {
      */
     public static final String MAX_NOTIFY_TIMES= "max_notify_times";
     /**
+     * 与商户后台约定的md5Key
+     */
+    public static final String MD5_KEY_WITH_BACK= "md5_key_with_back";
+    /**
      * 智付支付地址
      */
     public static final String DINPAY_PAY_URL= "dinpay_pay_url";

@@ -105,6 +105,32 @@ public class PayRecordDaoImpl implements IPayRecordDao {
     }
 
     /**
+     * 银行返回交易状态【强制】修改支付记录
+     * 修改以下字段，【不】带上WHERE条件tradeState!=1（交易成功），【不】保证成功状态的记录不被修改
+     * 字段名	值
+     * tradeDateTime	银行返回交易时间
+     * tradeState	    银行返回交易状态
+     * tradeBankSeq	    银行返回交易流水
+     * tradeDesc	    交易状态翻译交易描述
+     * updateDate	    当前日期，yyyyMMdd
+     * updateTime	    当前时间，HHmmss
+     * updateIp	        用户IP
+     * version	        +1
+     * @param payRecord
+     */
+    public void forceUpdateTradeState(PayRecord payRecord){
+        Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        String hql = "update PayRecord p set p.tradeDateTime='" + payRecord.getTradeDateTime() +
+                "',p.tradeState=" + payRecord.getTradeState() + ",p.tradeBankSeq='" + payRecord.getTradeBankSeq() +
+                "',p.tradeDesc='" + payRecord.getTradeDesc() + "',p.updateDate='" + payRecord.getUpdateDate() +
+                "',p.updateTime='" + payRecord.getUpdateTime() + "',p.updateIp='" + payRecord.getUpdateIp() +
+                "' where p.id=" + payRecord.getId();
+        session.createQuery(hql).executeUpdate();
+        session.getTransaction().commit();
+    }
+
+    /**
      * 查询需要异步通知的记录
      * 条件：【支付成功+未完成通知+通知次数小于5】
      * @return

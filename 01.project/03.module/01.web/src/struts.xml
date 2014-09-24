@@ -65,6 +65,10 @@
         <!-- 支付返回后台Action -->
         <action name="payReturnBg" class="payReturnBgAction">
         </action>
+
+        <!-- 强制单笔交易查询Action -->
+        <action name="forceSingleQuery" class="forceSingleQueryAction">
+        </action>
     </package>
 </struts>
 
