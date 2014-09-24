@@ -13,7 +13,7 @@
     <script type="text/javascript">
         window.onload = init;
         function init() {
-            //document.forms["jumpForm"].submit();
+            document.forms["jumpForm"].submit();
         }
     </script>
     <%
@@ -35,7 +35,7 @@
         <%
             }
         %>
-        <input type="submit" value="submit">
+        <%--<input type="submit" value="submit">--%>
     </form>
 </div>
 </body>

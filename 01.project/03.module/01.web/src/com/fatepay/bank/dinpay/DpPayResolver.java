@@ -50,6 +50,10 @@ public class DpPayResolver implements IPayResolver {
         props.put("order_no", payRecord.getTradeNo());//商户网站唯一订单号
         props.put("order_time", DateUtil.getLongDateTime(DateUtil.getDateTime(payRecord.getCreateDate(), payRecord.getCreateTime())));//商户订单时间 格式：yyyy-MM-dd HH:mm:ss
         props.put("order_amount", BaseUtil.formatYuan(payRecord.getOrderAmount()));//该笔订单的总金额，以元为单位，精确到小数点后两位
+
+
+        /**
+         * 中文如果不转换，MD5校验失败，如果转换，中文传到智付会乱码
         String productName = payRecord.getProductName();
         if(StringUtils.isBlank(productName)){
             productName = "网购商品";
@@ -60,6 +64,8 @@ public class DpPayResolver implements IPayResolver {
         } catch (UnsupportedEncodingException e) {
             logger.error("字符串转码失败！", e);
         }
+        **/
+        String productName = "DVD";//中文乱码，写死英文，不暴露商户给我们的商品名称
         props.put("product_name", productName);//商品名称
 
         // 3 生成签名

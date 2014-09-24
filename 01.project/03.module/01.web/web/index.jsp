@@ -10,8 +10,8 @@
     <span><a href="testGetToken.jsp" target="_blank">测试[获取token接口]页面</a></span><br>
     <span><a href="testPay.jsp" target="_blank">测试[支付接口]页面</a></span><br>
     <span><a href="testSingleQuery.jsp" target="_blank">测试[单笔交易查询接口]页面</a></span><br>
-    <span><a href="testPayReturnPg.jsp" target="_blank">测试[支付结果前台返回接口]页面</a></span><br>
-    <span><a href="testPayReturnBg.jsp" target="_blank">测试[支付结果后台返回接口]页面</a></span><br>
+    <%--<span><a href="testPayReturnPg.jsp" target="_blank">测试[支付结果前台返回接口]页面</a></span><br>--%>
+    <%--<span><a href="testPayReturnBg.jsp" target="_blank">测试[支付结果后台返回接口]页面</a></span><br>--%>
 </div>
 </body>
 </html>

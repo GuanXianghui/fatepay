@@ -110,6 +110,12 @@ public class SuccessPayRecordScanThread extends Thread {
                     payRecordService.updateNotify(payRecord);
                 } catch (Exception e){
                     logger.error("异步通知异常发生！", e);
+                    payRecord.setNotifyTimes(payRecord.getNotifyTimes() + 1);
+                    payRecord.setUpdateDate(DateUtil.getNowDate());
+                    payRecord.setUpdateTime(DateUtil.getNowTime());
+
+                    // 异步通知商户系统返回结果修改支付记录
+                    payRecordService.updateNotify(payRecord);
                 }
             }
         }

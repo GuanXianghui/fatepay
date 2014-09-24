@@ -112,7 +112,8 @@ public class DBTest extends TestCase {
      */
     public void testUpdateMerchantInfoWhiteList(){
         MerchantInfo merchantInfo = testGetMerchantInfoByMerchantCode();
-        merchantInfo.setWhiteList("http://localhost,http://127.0.0.1,http://www.suncare-sys.com,http://192.168.1.182,http://58.247.137.210");
+        merchantInfo.setWhiteList("http://localhost,http://127.0.0.1,http://www.suncare-sys.com," +
+                "http://192.168.1.182,http://58.247.137.210,http://test.rungroup.com.cn");
         hibernateTemplate.update(merchantInfo);
     }
 
