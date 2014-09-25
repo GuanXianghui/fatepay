@@ -30,15 +30,17 @@ public class PayRecordTradeNoUtil {
      * 空的构造函数
      */
     private PayRecordTradeNoUtil(){
-        nowDate = DateUtil.getNowDate();
         index = 0;
         // 启动应用 初始化：查询库中最大的index
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         IPayRecordService payRecordService = (IPayRecordService)applicationContext.getBean("payRecordService");
-        if(StringUtils.isBlank(payRecordService.getMaxTradeNo())){//库中一条记录都没有
+        String maxTradeNo = payRecordService.getMaxTradeNo();
+        if(StringUtils.isBlank(maxTradeNo)){//库中一条记录都没有
             index = 0;
+            nowDate = DateUtil.getNowDate();
         } else {
-            index = Integer.parseInt(payRecordService.getMaxTradeNo().substring(8));
+            index = Integer.parseInt(maxTradeNo.substring(8));
+            nowDate = maxTradeNo.substring(0, 8);
         }
         logger.info("查询库中最大的index:[" + index + "]");
     }
@@ -57,7 +59,7 @@ public class PayRecordTradeNoUtil {
      * 获取下一个交易代码
      * @return
      */
-    public String nextTradeNo(){
+    public synchronized String nextTradeNo(){
         // 只能一个线程进入以下代码块
         synchronized(this){
             // 如果日期更新则计数index从1开始
