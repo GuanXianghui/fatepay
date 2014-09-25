@@ -1,9 +1,6 @@
 package com.fatepay.api;
 
-import com.fatepay.bank.ISingleTradeQueryResolver;
 import com.fatepay.bank.PayResolverDispatcher;
-import com.fatepay.bank.SingleTradeQueryResolverDispatcher;
-import com.fatepay.bank.SingleTradeQueryResult;
 import com.fatepay.entities.MerchantInfo;
 import com.fatepay.entities.PayRecord;
 import com.fatepay.interfaces.PayRecordInterface;
@@ -128,46 +125,50 @@ public class PayProcessor extends BaseTransProcessor {
                     return transProcessorResult;
                 }
             } else {//金额一致
-                // 8 判没有明确结果 做查询
-                if(PayRecordInterface.STATE_SUCCESS != payRecord.getTradeState() &&
-                        PayRecordInterface.STATE_FAILED != payRecord.getTradeState()){
-                    // 分发处理器 向银行发起查询
-                    ISingleTradeQueryResolver singleTradeQueryResolver = SingleTradeQueryResolverDispatcher.dispatch();
-                    // 查询交易
-                    SingleTradeQueryResult singleTradeQueryResult = singleTradeQueryResolver.query(payRecord);
-                    // 判查询成功
-                    if(singleTradeQueryResult.isQuerySuccess()){
-                        //定义查询返回结果
-                        int queryPayState;
-                        String tradeDateTime;
-                        String tradeBankSeq;
-                        // 判交易存在
-                        if(!singleTradeQueryResult.isExist()){//不存在
-                            queryPayState = PayRecordInterface.STATE_FAILED;
-                            tradeDateTime = StringUtils.EMPTY;
-                            tradeBankSeq = StringUtils.EMPTY;
-                        } else {//存在
-                            queryPayState = singleTradeQueryResult.getTradeState();
-                            tradeDateTime = singleTradeQueryResult.getTradeDateTime();
-                            tradeBankSeq = singleTradeQueryResult.getTradeBankSeq();
-                        }
-                        // 由于查询交易消耗时间 重新查询最新的支付记录
-                        payRecord = payRecordService.getPayRecordByTradeNo(payRecord.getTradeNo());
-                        // 为支付状态判优先级 优先则需要修改
-                        boolean needUpdate = BaseUtil.comparePriorityForPayState(queryPayState, payRecord.getTradeState());
-                        if(needUpdate){
-                            payRecord.setTradeState(queryPayState);
-                            payRecord.setTradeDateTime(tradeDateTime);
-                            payRecord.setTradeBankSeq(tradeBankSeq);
-                            payRecord.setTradeDesc(BaseUtil.translatePayRecordStateDesc(queryPayState));
-                            payRecord.setUpdateDate(DateUtil.getNowDate());
-                            payRecord.setUpdateTime(DateUtil.getNowTime());
-                            payRecord.setUpdateIp(IPAddressUtil.getIPAddress(request));
-                            // 银行返回交易状态修改支付记录
-                            payRecordService.updateTradeState(payRecord);
-                        }
-                    } // 查询失败不做处理
-                }
+                /**
+                 * 做支付时候，只要交易已存在，不管是否有明确结果，都直接返回给商户，不调用银行查询交易，
+                 * 将商户与银行之间的联系断掉，只能依赖我们日终对账去查银行系统
+                 */
+//                // 8 判没有明确结果 做查询
+//                if(PayRecordInterface.STATE_SUCCESS != payRecord.getTradeState() &&
+//                        PayRecordInterface.STATE_FAILED != payRecord.getTradeState()){
+//                    // 分发处理器 向银行发起查询
+//                    ISingleTradeQueryResolver singleTradeQueryResolver = SingleTradeQueryResolverDispatcher.dispatch();
+//                    // 查询交易
+//                    SingleTradeQueryResult singleTradeQueryResult = singleTradeQueryResolver.query(payRecord);
+//                    // 判查询成功
+//                    if(singleTradeQueryResult.isQuerySuccess()){
+//                        //定义查询返回结果
+//                        int queryPayState;
+//                        String tradeDateTime;
+//                        String tradeBankSeq;
+//                        // 判交易存在
+//                        if(!singleTradeQueryResult.isExist()){//不存在
+//                            queryPayState = PayRecordInterface.STATE_FAILED;
+//                            tradeDateTime = StringUtils.EMPTY;
+//                            tradeBankSeq = StringUtils.EMPTY;
+//                        } else {//存在
+//                            queryPayState = singleTradeQueryResult.getTradeState();
+//                            tradeDateTime = singleTradeQueryResult.getTradeDateTime();
+//                            tradeBankSeq = singleTradeQueryResult.getTradeBankSeq();
+//                        }
+//                        // 由于查询交易消耗时间 重新查询最新的支付记录
+//                        payRecord = payRecordService.getPayRecordByTradeNo(payRecord.getTradeNo());
+//                        // 为支付状态判优先级 优先则需要修改
+//                        boolean needUpdate = BaseUtil.comparePriorityForPayState(queryPayState, payRecord.getTradeState());
+//                        if(needUpdate){
+//                            payRecord.setTradeState(queryPayState);
+//                            payRecord.setTradeDateTime(tradeDateTime);
+//                            payRecord.setTradeBankSeq(tradeBankSeq);
+//                            payRecord.setTradeDesc(BaseUtil.translatePayRecordStateDesc(queryPayState));
+//                            payRecord.setUpdateDate(DateUtil.getNowDate());
+//                            payRecord.setUpdateTime(DateUtil.getNowTime());
+//                            payRecord.setUpdateIp(IPAddressUtil.getIPAddress(request));
+//                            // 银行返回交易状态修改支付记录
+//                            payRecordService.updateTradeState(payRecord);
+//                        }
+//                    } // 查询失败不做处理
+//                }
 
                 // 9 判返回URL存在
                 if(StringUtils.isBlank(returnUrl)){

@@ -2,7 +2,6 @@ package com.fatepay.api;
 
 import com.fatepay.entities.MerchantInfo;
 import com.fatepay.interfaces.MerchantInfoInterface;
-import com.fatepay.interfaces.PayRecordInterface;
 import com.fatepay.interfaces.SymbolInterface;
 import com.fatepay.service.IPayRecordService;
 import com.fatepay.utils.DateUtil;

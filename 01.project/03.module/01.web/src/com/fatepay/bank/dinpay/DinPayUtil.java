@@ -14,7 +14,6 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
 import java.io.StringReader;
-import java.text.DecimalFormat;
 import java.util.*;
 
 /**

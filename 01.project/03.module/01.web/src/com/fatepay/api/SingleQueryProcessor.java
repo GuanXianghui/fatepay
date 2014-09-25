@@ -1,14 +1,8 @@
 package com.fatepay.api;
 
-import com.fatepay.bank.ISingleTradeQueryResolver;
-import com.fatepay.bank.SingleTradeQueryResolverDispatcher;
-import com.fatepay.bank.SingleTradeQueryResult;
 import com.fatepay.entities.PayRecord;
-import com.fatepay.interfaces.PayRecordInterface;
 import com.fatepay.interfaces.ProcessorInterface;
 import com.fatepay.utils.BaseUtil;
-import com.fatepay.utils.DateUtil;
-import com.fatepay.utils.IPAddressUtil;
 import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;

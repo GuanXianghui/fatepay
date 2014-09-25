@@ -1,6 +1,5 @@
 package com.fatepay.bank;
 
-import com.fatepay.bank.dinpay.DpPayResolver;
 import com.fatepay.bank.dinpay.DpSingleTradeQueryResolver;
 
 /**

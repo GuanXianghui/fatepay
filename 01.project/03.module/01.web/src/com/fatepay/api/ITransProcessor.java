@@ -1,7 +1,5 @@
 package com.fatepay.api;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * 交易处理器接口
  * @author Gxx

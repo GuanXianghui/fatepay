@@ -8,9 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;

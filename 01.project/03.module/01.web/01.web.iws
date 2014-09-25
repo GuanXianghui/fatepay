@@ -73,38 +73,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PayProcessor.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PayProcessor.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/fatepay/api/PayProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="72" selection-start="11964" selection-end="11964" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PayReturnBgAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/fatepay/PayReturnBgAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="27" selection-start="1484" selection-end="1773" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleQueryProcessor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/fatepay/api/SingleQueryProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="88" selection-start="3543" selection-end="3601" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PayRecordTradeNoUtil.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/fatepay/utils/PayRecordTradeNoUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="14" selection-start="293" selection-end="299" vertical-scroll-proportion="0.17117117">
-              <folding />
+            <state line="130" column="27" selection-start="5796" selection-end="5796" vertical-scroll-proportion="0.3505535">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,22 +94,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/jump.jsp" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/bank/dinpay/DpPayResolver.java" />
-        <option value="$PROJECT_DIR$/test/com/fatepay/dao/DBTest.java" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/listener/SuccessPayRecordScanThread.java" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/dao/PayRecordDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/dao/IPayRecordDao.java" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/service/IPayRecordService.java" />
         <option value="$PROJECT_DIR$/src/com/fatepay/service/PayRecordServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/fatepay/interfaces/BaseInterface.java" />
         <option value="$PROJECT_DIR$/src/config.properties" />
         <option value="$PROJECT_DIR$/src/struts.xml" />
         <option value="$PROJECT_DIR$/test/com/fatepay/utils/MD5UtilTest.java" />
         <option value="$PROJECT_DIR$/src/com/fatepay/ForceSingleQueryAction.java" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/api/SingleQueryProcessor.java" />
-        <option value="$PROJECT_DIR$/src/com/fatepay/PayReturnBgAction.java" />
         <option value="$PROJECT_DIR$/src/com/fatepay/utils/PayRecordTradeNoUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/api/PayProcessor.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/api/SingleQueryProcessor.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/api/BaseTransProcessor.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/api/ITransProcessor.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/bank/dinpay/DinPayUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/bank/dinpay/DpPayResolver.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/bank/SingleTradeQueryResolverDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/listener/SuccessPayRecordScanThread.java" />
+        <option value="$PROJECT_DIR$/src/com/fatepay/PayReturnBgAction.java" />
       </list>
     </option>
   </component>
@@ -256,6 +231,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="01.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="01.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="01.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="01.web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -296,39 +303,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="01.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="01.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fatepay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="01.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="01.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -336,29 +311,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="01.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="01.web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fatepay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -871,7 +824,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.44578314" order="9" side_tool="false" content_ui="tabs" />
@@ -892,7 +845,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.44578314" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.44578314" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23551829" sideWeight="0.59380376" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23551829" sideWeight="0.6712565" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.383821" sideWeight="0.49085367" order="2" side_tool="false" content_ui="tabs" x="24" y="203" width="1312" height="322" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1008,100 +961,132 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/test/com/fatepay/dao/DBTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/applicationContext.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/interfaces/PayRecordInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="7" selection-start="171" selection-end="231" vertical-scroll-proportion="-0.26666668" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="59" selection-start="2125" selection-end="2142" vertical-scroll-proportion="0.4864865" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="75" selection-start="522" selection-end="549" vertical-scroll-proportion="0.5135135" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/ForceSingleQueryAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="657" selection-end="657" vertical-scroll-proportion="-3.5603604" />
+        <state line="24" column="13" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/fatepay/utils/MD5UtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="43" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.55495495" />
+        <state line="13" column="13" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/utils/BaseUtil.java">
+    <entry file="file://$PROJECT_DIR$/test/com/fatepay/SchemaExportTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="25" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0" />
+        <state line="15" column="13" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../../02.lib/apache/commons-lang-2.3.jar!/org/apache/commons/lang/StringUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="35" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.3490566" />
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/BaseAction.java">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="13" selection-start="645" selection-end="645" vertical-scroll-proportion="-2.9711711">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/utils/DateUtil.java">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="406" column="25" selection-start="9645" selection-end="9645" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/dao/PayRecordDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/web/jump.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="66" selection-start="1937" selection-end="1944" vertical-scroll-proportion="0.26486486">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/showTokens.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/testGetToken.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/testMerchantResult.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/testPay.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/testPayReturnBg.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/testPayReturnPg.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/testSingleQuery.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/fatepay/api/PayProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="72" selection-start="11964" selection-end="11964" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/PayReturnBgAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="27" selection-start="1484" selection-end="1773" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/api/SingleQueryProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="88" selection-start="3543" selection-end="3601" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fatepay/utils/PayRecordTradeNoUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="14" selection-start="293" selection-end="299" vertical-scroll-proportion="0.17117117">
-          <folding />
+        <state line="130" column="27" selection-start="5796" selection-end="5796" vertical-scroll-proportion="0.3505535">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

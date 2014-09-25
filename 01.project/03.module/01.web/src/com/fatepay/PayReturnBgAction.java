@@ -3,7 +3,6 @@ package com.fatepay;
 import com.fatepay.api.TransProcessorResult;
 import com.fatepay.bank.PayResolverDispatcher;
 import com.fatepay.entities.PayRecord;
-import com.fatepay.interfaces.ProcessorInterface;
 import com.fatepay.service.IPayRecordService;
 import com.fatepay.utils.DateUtil;
 import org.apache.commons.lang.StringUtils;
